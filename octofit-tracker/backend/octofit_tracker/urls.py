@@ -20,6 +20,7 @@ from .views import UserViewSet, TeamViewSet, ActivityViewSet, WorkoutViewSet, Le
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+import os
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -28,14 +29,25 @@ router.register(r'activities', ActivityViewSet)
 router.register(r'workouts', WorkoutViewSet)
 router.register(r'leaderboards', LeaderboardViewSet)
 
+
+# Helper to build the full API URL using $CODESPACE_NAME
+def build_api_url(component):
+    codespace_name = os.environ.get('CODESPACE_NAME', 'localhost')
+    # Use HTTPS for codespace, HTTP for localhost
+    if codespace_name == 'localhost':
+        base_url = f"http://localhost:8000/api/{component}/"
+    else:
+        base_url = f"https://{codespace_name}-8000.app.github.dev/api/{component}/"
+    return base_url
+
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'teams': reverse('team-list', request=request, format=format),
-        'activities': reverse('activity-list', request=request, format=format),
-        'workouts': reverse('workout-list', request=request, format=format),
-        'leaderboards': reverse('leaderboard-list', request=request, format=format),
+        'users': build_api_url('users'),
+        'teams': build_api_url('teams'),
+        'activities': build_api_url('activities'),
+        'workouts': build_api_url('workouts'),
+        'leaderboards': build_api_url('leaderboards'),
     })
 
 urlpatterns = [
