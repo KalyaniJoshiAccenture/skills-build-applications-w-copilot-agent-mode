@@ -1,0 +1,137 @@
+
+.App {
+  text-align: center;
+  background: linear-gradient(135deg, #f0f4f9 0%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+
+.App-logo {
+  height: 48px;
+  width: 48px;
+  margin-right: 16px;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+.App-header {
+  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+}
+
+
+.App-link, .navbar .nav-link, .navbar-brand {
+  color: #3b82f6 !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.App-link:hover, .navbar .nav-link:hover, .navbar-brand:hover {
+  color: #6366f1 !important;
+}
+
+/* Navbar styling */
+.navbar {
+  background: linear-gradient(90deg, #e0e7ff 0%, #f0f4f9 100%);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #3b82f6 !important;
+}
+.nav-link.active {
+  color: #6366f1 !important;
+  font-weight: bold;
+}
+
+/* Headings */
+h1, h2, h3, .card-title {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+/* Table styling */
+table.table {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.06);
+}
+th {
+  background: #e0e7ff !important;
+  color: #3b82f6;
+  font-weight: 600;
+}
+td {
+  color: #374151;
+}
+
+/* Buttons */
+.btn, .btn-primary {
+  background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+  color: #fff;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+  background: #f8fafc;
+}
+
+/* Modals */
+.modal-content {
+  border-radius: 16px;
+  background: #f0f4f9;
+}
+.modal-header, .modal-footer {
+  background: #e0e7ff;
+  color: #3b82f6;
+}
+
+/* Forms */
+.form-control:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e0e7ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 8px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
